@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}}
+{% load static %}
+{% block title %}
+    {{title}}
+{% endblock title %}
+{% block content %}
+            <div class="col">
+                <h4 class="text-center">{{message}}</h4>
+                <div class="row">
+
+                    {% for product in products %}
+                    <div class="col-3 mt-5">
+                        {% include 'snipped/s_product.html' with product= object%}
+                    </div>
+                    {% empty %}
+                    <h3>no hay productos</h3>
+                    
+

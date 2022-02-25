@@ -5,20 +5,28 @@
 {% endblock title %}
 {% block content %}
             <div class="col">
-                <center><h1>{{message}}</h1></center>
-                <ul class="list-group">
+                <h4 class="text-center">{{message}}</h4>
+                <div class="row">
+
                     {% for product in products %}
-                    <li class="list-group-item">
-                        {{product.title}}
-                        <span class="text-success">{{product.price}}</span>
-                    </li>
-                    {% empty %}
-                        <h3>No hay productos en la tienda esta pelado</h3>
-                    {% endfor %}
-                </ul>
-                <img src="{% static 'img/playera.jpg' %}" alt="">      
+                    <div class="col-3 mt-5">
+                        <div class="card h-1000">
+                            {% if product.image %}
+                            <img src="{{product.image.url}}" alt="imagen deñ producto" heigth="300">
+
+                            {% endif%}
+                            <div class="card-body">
+                                <h5 class="card-title">{{product.title}}</h5>
+                                <p class="card-text">{{ product.description}}</p>
+                                <a href="#" class="btn btn-primary">ver en detalle</a>
+                        </div>
+                        
+                </div>
             </div>
+            {% empty%}
+            <h3> no hay productos duque acabo con todo</h3>
+            {% endfor %}
         </div>
-    </div>
+               
 
 {% endblock content %}

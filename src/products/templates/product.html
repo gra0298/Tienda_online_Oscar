@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}
+    Detalles productos
+{% endblock title %}
+{% block content %}
+    <div class="col -3">
+        {% if product.image %}
+        <img src="{{product.image.url}}" alt=" imagen del producto" width="2000",heigth="200">
+        {% endif %}
+    </div>
+
+    <div class="col"
+        <div class="h1">
+            {{product.title}}
+        </div>
+        <div class="h5 font-weight-bold">
+            precio: <span class="text-danger">{{product.price}}</span>
+        </div>
+        <div class="">
+            <p>{{product.description}}</p>
+        </div>
+
+
+{% endblock content %}

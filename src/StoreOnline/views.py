@@ -20,17 +20,17 @@ def index(request):
     return render(request, "index.html", context)
 
 def login_view(request):
-    if request.user.is_authenticate:
-        return redirect('index')
+    if request.user.is_authenticated:
+        return redirect('products/index')
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
-        #print("sfdssssssssssssssssssssssssssssssssssssssss",username)
+        
         user = authenticate(username=username, password=password)
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
-            return redirect('index')
+            return redirect('products:index')
         else:
             messages.error(request,'Usuario o Contraseña incorrectos')
         

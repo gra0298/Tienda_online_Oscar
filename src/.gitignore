@@ -1,4 +1,6 @@
 venv/*
 static/img/*
 __pycache__
+media/*
 db.sqlite3/*
+migrations/*
